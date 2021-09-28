@@ -20,20 +20,21 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
     DatabaseEvent event,
   ) async* {
     if (event is InitDatabase) {
-      final result = await DatabaseService().initService(event.context);
+      //   final result = await DatabaseService().initService(event.context);
 
-      yield* result.fold((l) async* {
-        yield DatabaseFailed(l);
-      }, (r) async* {
-        _db = r;
-        yield DatabaseLoaded();
-      });
+      //   yield* result.fold((l) async* {
+      //     yield DatabaseFailed(l);
+      //   }, (r) async* {
+      //     _db = r;
+      //     yield DatabaseLoaded();
+      //   });
+      // }
+
+      // if (event is AddDatabase) {
+      //   _db = event.db;
+      // }
     }
 
-    if (event is AddDatabase) {
-      _db = event.db;
-    }
+    //Database? get db => _db;
   }
-
-  Database? get db => _db;
 }
