@@ -19,6 +19,7 @@ dependencies:
   flutter_screenutil: ^5.0.0+2
   google_fonts: ^2.1.0
   hydrated_bloc: ^7.1.0
+  path_provider: ^2.0.5
   permission_handler: ^8.1.6
   rxdart: ^0.27.2
   sqflite: ^2.0.0+4
