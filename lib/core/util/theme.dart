@@ -108,9 +108,9 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
         color: kDarkTextColor,
       ),
     ),
-    // progressIndicatorTheme: ProgressIndicatorThemeData(
-    //   refreshBackgroundColor: kDarkPlaceholder,
-    // ),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      refreshBackgroundColor: kDarkPlaceholder,
+    ),
     colorScheme: const ColorScheme.dark().copyWith(
       background: kDarkPlaceholder,
       surface: kDarkPlaceholderText,
@@ -213,9 +213,9 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
         size: 24.sp,
       ),
     ),
-    // progressIndicatorTheme: ProgressIndicatorThemeData(
-    //   refreshBackgroundColor: kLightPlaceholder,
-    // ),
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      refreshBackgroundColor: kLightPlaceholder,
+    ),
     colorScheme: const ColorScheme.light().copyWith(
       background: kLightPlaceholder,
       surface: kLightPlaceholderText,

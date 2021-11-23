@@ -17,10 +17,11 @@ class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
     ThemeEvent event,
   ) async* {
     if (event is ToggleTheme) {
-      if (state.currentTheme == kAppThemeData[AppTheme.Dark]!)
+      if (state.currentTheme == kAppThemeData[AppTheme.Dark]!) {
         yield ThemeState(kAppThemeData[AppTheme.Light]!);
-      else if (state.currentTheme == kAppThemeData[AppTheme.Light]!)
+      } else if (state.currentTheme == kAppThemeData[AppTheme.Light]!) {
         yield ThemeState(kAppThemeData[AppTheme.Dark]!);
+      }
     }
   }
 
