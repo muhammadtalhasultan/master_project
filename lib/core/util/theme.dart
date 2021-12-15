@@ -213,7 +213,7 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
         size: 24.sp,
       ),
     ),
-    progressIndicatorTheme: ProgressIndicatorThemeData(
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
       refreshBackgroundColor: kLightPlaceholder,
     ),
     colorScheme: const ColorScheme.light().copyWith(

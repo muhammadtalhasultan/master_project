@@ -113,7 +113,7 @@ class NotificationService {
       required Duration duration}) async {
     /// android customisation notification
     AndroidNotificationDetails androidPlatformChannelSpecifics =
-        AndroidNotificationDetails(
+        const AndroidNotificationDetails(
       '1',
       'Prayer Timing',
       'Notification to tell user that it is time for Muslim prayer.',
@@ -127,7 +127,8 @@ class NotificationService {
     );
 
     /// ios customisation notification
-    IOSNotificationDetails iosPlatformChannelSpecifics = IOSNotificationDetails(
+    IOSNotificationDetails iosPlatformChannelSpecifics =
+        const IOSNotificationDetails(
       sound: 'slow_spring_board.aiff',
     );
 
@@ -147,8 +148,8 @@ class NotificationService {
   }
 
   Future<void> checkNotification() async {
-    final available =
-        await flutterLocalNotificationsPlugin.pendingNotificationRequests();
-    print(available.length);
+    // final available =
+    // await flutterLocalNotificationsPlugin.pendingNotificationRequests();
+    // print(available.length);
   }
 }

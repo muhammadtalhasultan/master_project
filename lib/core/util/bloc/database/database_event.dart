@@ -7,7 +7,7 @@ abstract class DatabaseEvent extends Equatable {
 class InitDatabase extends DatabaseEvent {
   final BuildContext context;
 
-  InitDatabase(this.context);
+  const InitDatabase(this.context);
 
   @override
   List<Object> get props => [context];
@@ -16,7 +16,7 @@ class InitDatabase extends DatabaseEvent {
 class AddDatabase extends DatabaseEvent {
   final Database db;
 
-  AddDatabase(this.db);
+  const AddDatabase(this.db);
 
   @override
   List<Object> get props => [db];

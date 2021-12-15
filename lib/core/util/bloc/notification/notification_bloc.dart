@@ -27,7 +27,7 @@ class NotificationBloc
       if (Platform.isIOS) {
         final permission = await Permission.notification.status;
         if (permission.isGranted && state.status.isRestricted) {
-          yield NotificationState(PermissionStatus.restricted);
+          yield const NotificationState(PermissionStatus.restricted);
         } else {
           yield NotificationState(permission);
         }
@@ -38,12 +38,12 @@ class NotificationBloc
         final permission = await Permission.notification.request();
         yield NotificationState(permission);
       } else if (state.status == PermissionStatus.permanentlyDenied) {
-        yield NotificationState(PermissionStatus.permanentlyDenied);
+        yield const NotificationState(PermissionStatus.permanentlyDenied);
       } else if (state.status == PermissionStatus.restricted) {
-        yield NotificationState(PermissionStatus.granted);
+        yield const NotificationState(PermissionStatus.granted);
       } else if (state.status == PermissionStatus.granted) {
         await NotificationService().cancelAllNotifications();
-        yield NotificationState(PermissionStatus.restricted);
+        yield const NotificationState(PermissionStatus.restricted);
       }
     }
   }

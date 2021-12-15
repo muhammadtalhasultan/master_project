@@ -14,7 +14,8 @@ class RemoteFailure extends Failure {
   final DioErrorType errorType;
   final int? errorCode;
 
-  RemoteFailure({this.errorCode, required message, required this.errorType})
+  const RemoteFailure(
+      {this.errorCode, required message, required this.errorType})
       : super(message);
 
   @override
@@ -26,7 +27,7 @@ class LocalFailure extends Failure {
   final int error;
   final String? extraInfo;
 
-  LocalFailure({
+  const LocalFailure({
     required message,
     required this.error,
     this.extraInfo,

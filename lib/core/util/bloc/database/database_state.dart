@@ -17,7 +17,7 @@ class DatabaseLoaded extends DatabaseState {
 class DatabaseFailed extends DatabaseState {
   final Failure failure;
 
-  DatabaseFailed(this.failure);
+  const DatabaseFailed(this.failure);
 
   @override
   List<Object> get props => [failure];

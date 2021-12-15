@@ -8,7 +8,7 @@ class ChangeThemeSwitch extends StatelessWidget {
   final bool value;
   final ValueChanged<bool> onChanged;
 
-  ChangeThemeSwitch({
+  const ChangeThemeSwitch({
     required this.value,
     required this.onChanged,
   });
@@ -61,7 +61,7 @@ class ChangeThemeSwitch extends StatelessWidget {
                 child: Container(
                   width: 28.0.w,
                   height: 28.0.w,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: Colors.white),
                   child: AnimatedSwitcher(
                     duration: kAnimationDuration,

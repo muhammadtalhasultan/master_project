@@ -5,14 +5,13 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-import '../../../database/database_service.dart';
 import '../../../error/failures.dart';
 
 part 'database_event.dart';
 part 'database_state.dart';
 
 class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
-  Database? _db;
+  // Database? _db;
   DatabaseBloc() : super(DatabaseInitial());
 
   @override
