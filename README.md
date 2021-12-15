@@ -26,10 +26,5 @@ Why is this useful? Applying the DRY principle helps code maintainability, impro
 
 - **Testing & Deployment:** Lastly, you can test and deploy your app smoothly using Flutter Starter! Go to the test folder, add your test files and start writing test cases. Check out the [Android](https://flutter.dev/docs/deployment/android) or [iOS](https://flutter.dev/docs/deployment/ios) pages to deploy your app.
 
-* [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-* [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-https://github.com/ResoCoder/flutter-tdd-clean-architecture-course/raw/master/architecture-proposal.png
+## Code Architecture
+![Preview](https://i.ibb.co/M1wP0KY/architecture-proposal.png)
