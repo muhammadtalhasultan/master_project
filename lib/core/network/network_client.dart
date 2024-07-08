@@ -7,9 +7,8 @@ class NetworkClient {
 
   NetworkClient(String baseUrl) {
     BaseOptions baseOptions = BaseOptions(
-        receiveTimeout:
-            0, // db file size 15,665,152 byte minimum 5kbps 3133seconds
-        connectTimeout: 30000,
+        receiveTimeout: const Duration(seconds: 30),
+        connectTimeout: const Duration(seconds: 30),
         baseUrl: baseUrl,
         maxRedirects: 2);
     _dio = Dio(baseOptions);
@@ -32,7 +31,7 @@ class NetworkClient {
           options: Options(
             responseType: ResponseType.json,
           ));
-    } on DioError catch (exception) {
+    } on DioException catch (exception) {
       throw RemoteException(dioError: exception);
     }
     return response;
@@ -47,7 +46,7 @@ class NetworkClient {
           options: Options(
             responseType: ResponseType.json,
           ));
-    } on DioError catch (exception) {
+    } on DioException catch (exception) {
       throw RemoteException(dioError: exception);
     }
     return response;
@@ -62,7 +61,7 @@ class NetworkClient {
           options: Options(
             responseType: ResponseType.json,
           ));
-    } on DioError catch (exception) {
+    } on DioException catch (exception) {
       throw RemoteException(dioError: exception);
     }
     return response;
@@ -78,7 +77,7 @@ class NetworkClient {
         pathName,
         onReceiveProgress: onReceiveProgress,
       );
-    } on DioError catch (exception) {
+    } on DioException catch (exception) {
       throw RemoteException(dioError: exception);
     }
     return response;

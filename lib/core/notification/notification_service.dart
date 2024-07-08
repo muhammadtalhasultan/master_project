@@ -1,7 +1,7 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+// import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:rxdart/subjects.dart';
-import 'package:timezone/data/latest.dart' as tz;
+// import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
 import 'receive_notification.dart';
@@ -33,9 +33,6 @@ class NotificationService {
 
   /// initialize this notification service
   Future<void> init() async {
-    /// use for schedule notification
-    await _configureLocalTimeZone();
-
     /// andriod local notification setting
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('ic_launcher');
@@ -45,8 +42,8 @@ class NotificationService {
     /// ios local notification setting
     /// [onDidRecieveLocalNotification] handler for clicking notification while in
     /// app
-    final IOSInitializationSettings initializationSettingsIOS =
-        IOSInitializationSettings(
+    final DarwinInitializationSettings initializationSettingsIOS =
+        DarwinInitializationSettings(
       requestAlertPermission: false,
       requestBadgePermission: false,
       requestSoundPermission: false,
@@ -62,7 +59,7 @@ class NotificationService {
     /// app ios<10+
     await flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
-      onSelectNotification: _onSelectNotification,
+      // onDidReceiveNotificationResponse: _onSelectNotification,
     );
 
     await checkNotification();
@@ -92,14 +89,6 @@ class NotificationService {
     selectNotificationSubject.add(payload);
   }
 
-  Future<void> _configureLocalTimeZone() async {
-    tz.initializeTimeZones();
-
-    final String? timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
-
-    tz.setLocalLocation(tz.getLocation(timeZoneName!));
-  }
-
   Future<void> cancelAllNotifications() async {
     await flutterLocalNotificationsPlugin.cancelAll();
   }
@@ -116,19 +105,19 @@ class NotificationService {
         const AndroidNotificationDetails(
       '1',
       'Prayer Timing',
-      'Notification to tell user that it is time for Muslim prayer.',
+      // 'Notification to tell user that it is time for Muslim prayer.',
       importance: Importance.max,
       //icon:
       sound: RawResourceAndroidNotificationSound('slow_spring_board'),
       // when:
       ticker: 'Prayer Timing',
       visibility: NotificationVisibility.public,
-      category: 'reminder',
+      category: AndroidNotificationCategory.alarm,
     );
 
     /// ios customisation notification
-    IOSNotificationDetails iosPlatformChannelSpecifics =
-        const IOSNotificationDetails(
+    DarwinNotificationDetails iosPlatformChannelSpecifics =
+        const DarwinNotificationDetails(
       sound: 'slow_spring_board.aiff',
     );
 
@@ -138,13 +127,17 @@ class NotificationService {
     );
 
     /// scheduled notification function
-    await flutterLocalNotificationsPlugin.zonedSchedule(id, title, body,
-        tz.TZDateTime.now(tz.local).add(duration), platformChannelSpecifics,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime,
-        androidAllowWhileIdle: true,
-        matchDateTimeComponents: DateTimeComponents.time,
-        payload: '');
+    await flutterLocalNotificationsPlugin.zonedSchedule(
+      id,
+      title,
+      body,
+      tz.TZDateTime.now(tz.local).add(duration),
+      platformChannelSpecifics,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+      matchDateTimeComponents: DateTimeComponents.time,
+      payload: '',
+    );
   }
 
   Future<void> checkNotification() async {

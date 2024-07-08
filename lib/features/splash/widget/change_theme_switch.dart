@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -38,12 +40,12 @@ class ChangeThemeSwitch extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       'assets/icons/svg/sun.svg',
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyMedium!.color,
                       width: 20.w,
                     ),
                     SvgPicture.asset(
                       'assets/icons/svg/moon.svg',
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyMedium!.color,
                       width: 20.w,
                     ),
                   ],

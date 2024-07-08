@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Hello',
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
         centerTitle: true,
       ),
@@ -25,12 +25,12 @@ class SplashScreen extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 'Go to Home',
-                style: Theme.of(context).textTheme.button,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
             Text(
               'Change Theme',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(
               height: 10,
